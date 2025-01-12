@@ -1,4 +1,4 @@
-package ca.cricri.algorithm.sorting;
+package ca.cricri.algorithm.sorting.kata1;
 
 import java.util.Arrays;
 

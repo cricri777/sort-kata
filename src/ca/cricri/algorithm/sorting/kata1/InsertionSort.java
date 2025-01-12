@@ -1,4 +1,4 @@
-package ca.cricri.algorithm.sorting;
+package ca.cricri.algorithm.sorting.kata1;
 
 import java.util.Arrays;
 
@@ -8,7 +8,7 @@ public class InsertionSort {
         int[] arrayToSort = {5, 12, 23, 51, 1, 23, 1, 4, 6, 156, 6, 3};
 
         InsertionSort is = new InsertionSort();
-        System.out.println("sorted   array=" + Arrays.toString(is.sort(arrayToSort)));
+        System.out.println("sorted   array=" + Arrays.toString(is.sort2(arrayToSort)));
         System.out.println("validate sorted array=" +
                 Arrays.toString(Arrays.stream(arrayToSort).sorted().toArray()));
     }
@@ -22,6 +22,20 @@ public class InsertionSort {
                arrayToSort[j] = arrayToSort[j - 1];
                arrayToSort[j - 1] = k;
            }
+        }
+        return arrayToSort;
+    }
+
+    private int[] sort2(int[] arrayToSort) {
+        int arrayLength = arrayToSort.length;
+        for (int i=1; i<arrayLength; i++){
+            int key = arrayToSort[i];
+            int j = i - 1;
+            while(j >= 0 && key < arrayToSort[j]){
+                arrayToSort[j+1] = arrayToSort[j];
+                j--;
+            }
+            arrayToSort[j + 1] = key;
         }
         return arrayToSort;
     }
